@@ -8,32 +8,10 @@ const createUser = {
   })
 };
 
-const getUsers = {
-  query: Joi.object().keys({
-    name: Joi.string(),
-    role: Joi.string(),
-    sortBy: Joi.string(),
-    limit: Joi.number().integer(),
-    page: Joi.number().integer()
-  })
-};
-
 const getUser = {
   params: Joi.object().keys({
     userId: Joi.number().integer()
   })
-};
-
-const updateUser = {
-  params: Joi.object().keys({
-    userId: Joi.number().integer()
-  }),
-  body: Joi.object()
-    .keys({
-      username: Joi.string().min(3).max(30),
-      password: Joi.string().custom(password)
-    })
-    .min(1)
 };
 
 const deleteUser = {
@@ -44,8 +22,6 @@ const deleteUser = {
 
 export default {
   createUser,
-  getUsers,
   getUser,
-  updateUser,
   deleteUser
 };
